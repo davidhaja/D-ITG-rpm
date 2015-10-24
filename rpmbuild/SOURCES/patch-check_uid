@@ -1,0 +1,25 @@
+--- src/unix.mk.orig	2015-10-24 12:54:55.647361607 +0000
++++ src/unix.mk	2015-10-24 12:55:24.784070636 +0000
+@@ -185,12 +185,8 @@ $(COMPONENTS): $(THOBJS) $(OBJS)
+ check_ditg:
+ 	@ [ -e $(PREFIX)/bin/ITGSend ] || { echo 'D-ITG is not installed.' ; exit 1 ; }
+ 
+-##########
+-check_uid:
+-	@ [ `id -u` -eq 0 ] || { echo 'You need to be root to install D-ITG.' ; exit 1; }
+-	
+ ########
+-install: check_uid
++install: 
+ 	@ echo '----------------'
+ 	@ echo 'Installing D-ITG'
+ 	@ echo '----------------'
+@@ -208,7 +204,7 @@ install: check_uid
+ 	@ echo 'D-ITG installed in $(BIN)'
+ 	
+ ##########
+-uninstall: check_uid check_ditg
++uninstall: check_ditg
+ 	@ echo '------------------'
+ 	@ echo 'Uninstalling D-ITG'
+ 	@ echo '------------------'
