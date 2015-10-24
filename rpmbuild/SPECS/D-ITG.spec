@@ -8,6 +8,7 @@ URL:            http://traffic.comics.unina.it/software/ITG/
 Vendor:         COMICS (COMputer for Interaction and CommunicationS) Group Department of Electrical Engineering and Information Technologies University of Napoli "Federico II" ditg@comics.unina.it
 Source:         %{name}-%{version}.tar.gz
 Packager: 	David Haja (david.haja@gmail.com)
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Patch0:         patch-check_uid
 %description
 
@@ -37,4 +38,4 @@ make install PREFIX=$RPM_BUILD_ROOT/usr
 %files
 %{_bindir}/*
 %{_libdir}/*
-%doc README
+
